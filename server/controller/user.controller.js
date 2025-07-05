@@ -1,6 +1,7 @@
 import User from "../model/User.model.js";
-import crypto from 'crypto';
+import crypto from 'crypto';  // node js has default module crypto
 import nodemailer from 'nodemailer';
+import bcrypt from 'bcrypt';
 const registerUser = async (req,res)=>{
 
     // get data 
@@ -115,4 +116,29 @@ const verifyUser = async (req,res)=>{
 
 }
 
-export {registerUser, verifyUser};
+const login = async (req,res)=>{
+      const {email,password} = req.body;
+
+      if(!email || !password){
+        return res.status(400).json({
+            message : "All fields are required"
+        })
+      }
+
+      const user = await User.findOne({email});
+      if(!user){
+        return res.status(400).json({
+            message : "Invalid email or password"
+        })
+      }
+
+      const isMatch = await bcrypt.compare(password, user.password);
+      console.log(isMatch);
+      if(!isMatch){
+        return res.status(400).json({
+            message : "Invalid email or password"
+        })
+      }
+}
+
+export {registerUser, verifyUser, login};
