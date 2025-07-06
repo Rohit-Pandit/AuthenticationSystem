@@ -2,6 +2,7 @@ import User from "../model/User.model.js";
 import crypto from 'crypto';  // node js has default module crypto
 import nodemailer from 'nodemailer';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 const registerUser = async (req,res)=>{
 
     // get data 
@@ -125,7 +126,8 @@ const login = async (req,res)=>{
         })
       }
 
-      const user = await User.findOne({email});
+      try {
+        const user = await User.findOne({email});
       if(!user){
         return res.status(400).json({
             message : "Invalid email or password"
@@ -138,6 +140,37 @@ const login = async (req,res)=>{
         return res.status(400).json({
             message : "Invalid email or password"
         })
+      }
+
+      const token = jwt.sign(
+        {id : user._id,role : user.role},
+        "shhhhh",
+        {expiresIn : '24h'}
+      );
+      const cookieOptions = {
+        httpOnly : true,
+        secure : true,
+        maxAge : 24*60*60*100
+      }
+      res.cookie("token", token, cookieOptions);
+
+      res.status(200).json({
+        success : true,
+        message : "Login successful",
+        token,
+        user : {
+            id : user._id,
+            name : user.name,
+            role : user.role
+        }
+      })
+        
+      } catch (error) {
+        return res.status(400).json({
+            message : "Login unsuccessful",
+            error
+        })
+        
       }
 }
 
