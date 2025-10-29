@@ -15,36 +15,36 @@ const userSchema = new mongoose.Schema({
         type : String,
         required : true
     },
-    role : {
-        type : String,
-        enum : ["user","admin"],
-        default : "user"
-    },
-    isVerified : {
+    isVerified : {  //isAccountVerified
         type : Boolean,
         default : false
     },
-   verificationToken : {
+   verifyOtp : { 
         type : String,
         default : ''
         
     },
-    resetPasswordToken : {
+    verifyOtpExpiryAt : { 
+        type : Number,  
+        default : 0 
+    },
+    resetOtp : {  
         type : String,
         default : ''
     },
-    resetPasswordExpires : {
-        type : Date,
+    resetOtpExpiryAt : {  
+        type : Number,  
+        default : 0 
         
     }
 }, {timestamps : true})
 
-userSchema.pre("save", async function(next){
-    if(this.isModified("password")){
-        this.password = await bcrypt.hash(this.password,10);
-    }
-    next();
-})
+// userSchema.pre("save", async function(next){
+//     if(this.isModified("password")){
+//         this.password = await bcrypt.hash(this.password,10);
+//     }
+//     next();
+// })
 
 const User = mongoose.model("User", userSchema);
 export default User
