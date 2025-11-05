@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import cookieParser from 'cookie-parser';
 import userRoutes from './routes/user.routes.js';
+import profileRouter from './routes/profile.routes.js';
 
 
 dotenv.config();
@@ -16,7 +17,8 @@ app.use(cookieParser())
 app.use(cors({
     origin: [process.env.BASE_URL, 'http://localhost:4000' ],
     methods: ['GET','POST','PUT','DELETE'],
-    allowedHeaders : ['Content-Type', 'Authorization']
+    allowedHeaders : ['Content-Type', 'Authorization'],
+    credentials : true
 }))
 
 app.get('/', (req, res) => {
@@ -26,6 +28,7 @@ app.get('/', (req, res) => {
 connectDB();
 
 app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/profile', profileRouter);
 
 
 
