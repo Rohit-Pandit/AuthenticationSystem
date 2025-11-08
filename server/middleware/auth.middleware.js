@@ -10,7 +10,7 @@ export const authMiddleware = (req,res,next)=>{
         });
     }   
     try {
-        console.log("🔐 middleware jwt secret:", process.env.JWT_SECRET);
+        
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         if(decoded.id){
             req.userId = decoded.id;
@@ -23,7 +23,7 @@ export const authMiddleware = (req,res,next)=>{
         }
         next();
     } catch (error) {
-        console.error("❌ JWT Verify Error:", error.message);
+       
         return res.status(401).json({
             message: "Unauthorized access, invalid token",
             reason: error.message,   // 👈 add this line for debugging

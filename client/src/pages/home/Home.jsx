@@ -5,7 +5,7 @@ import Header from '../../components/header/Header';
 export const Home = () => {
   return (
     <div className='home-container'>
-      <Navbar />
+      <Navbar/>
       <Header/>
     </div>
   )

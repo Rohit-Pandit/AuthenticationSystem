@@ -14,3 +14,53 @@
     border-radius: 4px;
     cursor: pointer;
 }
+.userLogo{
+  width: 2rem;              
+  height: 2rem;             
+  display: flex;            
+  justify-content: center;  
+  align-items: center;     
+  border-radius: 9999px;    
+  background-color: black;  
+  color: white;             
+  position: relative;  
+}
+.dropdown {
+  position: absolute;         /* absolute */
+  display: none;              /* hidden */
+  top: 0;                     /* top-0 */
+  right: 0;                   /* right-0 */
+  z-index: 10;                /* z-10 */
+  color: black;               /* text-black */
+  border-radius: 0.25rem;     /* rounded (default radius) */
+  padding-top: 2.5rem;        /* pt-10 = 2.5rem */
+}
+
+.userLogo:hover .dropdown {
+  display: block;             /* group-hover:block */
+}
+
+.dropdown ul {
+  list-style: none;           /* list-none */
+  margin: 0;                  /* m-0 */
+  padding: 0.5rem;            /* p-2 = 0.5rem */
+  background-color: #f3f4f6;  /* bg-gray-100 */
+  font-size: 0.875rem;        /* text-sm */
+}
+
+.dropdown li {
+  padding-top: 0.25rem;       /* py-1 = 0.25rem top */
+  padding-bottom: 0.25rem;    /* py-1 = 0.25rem bottom */
+  padding-left: 0.5rem;       /* px-2 = 0.5rem left */
+  padding-right: 0.5rem;      /* px-2 = 0.5rem right */
+  cursor: pointer;            /* cursor-pointer */
+  border-radius: 0.25rem;     /* small rounding for hover effect */
+}
+
+.dropdown li:hover {
+  background-color: #e5e7eb;  /* hover:bg-gray-200 */
+}
+
+.dropdown li:last-child {
+  padding-right: 2.5rem;      /* pr-10 = 2.5rem (Logout item) */
+}

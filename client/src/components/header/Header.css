@@ -7,11 +7,12 @@
     align-items: center;
     padding: 0 20px;
     box-sizing: border-box;
-    margin-top: 3rem;
+    margin-top: 5rem;
+    gap: 1rem;
     
 }
-.header-container img {
-    height: 40px;
+.robo {
+    height: 100px;
     
 }
 .hand-wave {

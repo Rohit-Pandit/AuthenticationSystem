@@ -179,7 +179,6 @@ const logout = async (req,res)=>{
 
 const sendVerificationEmailOtp = async (req, res) => {
     try{
-        const { email} = req.body;
         const userId = req.userId;
 
         const user = await User.findById(userId);
@@ -207,7 +206,7 @@ const sendVerificationEmailOtp = async (req, res) => {
         // send otp to user's email
         const mailOptions = {
             from : process.env.SENDER_EMAIL,
-            to : email,
+            to : user.email,
             subject : "Email Verification OTP",
             text : `Your OTP for email verification is ${otp}. It is valid for 10 minutes.`
         };  
@@ -278,6 +277,7 @@ const verifyEmailOtp = async (req, res) => {
     } catch (error) {
         return res.status(500).json({
             message : "Error in verifying email OTP",
+            reason: error.message,
             success : false,
             error
         });

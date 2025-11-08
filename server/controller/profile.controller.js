@@ -15,7 +15,7 @@ const getUserData = async(req,res) => {
                 success: true,
                 userData: {
                     name: user.name,
-                    isAccountVerified: user.isVerified,
+                    isVerified: user.isVerified,
                 }, 
                 status: 'true' 
             });
