@@ -5,6 +5,7 @@ import axios from "axios";
 import AppContext from "../../context/app.context";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const EmailVerify = () => {
   const navigate = useNavigate();
@@ -62,6 +63,12 @@ const EmailVerify = () => {
       toast.error(error.message);
     }
   };
+
+  useEffect(()=>{
+
+    isLoggedIn && user && user.isVerified && navigate('/')
+
+  },[isLoggedIn,user])
 
   return (
     <div className="email-container">
