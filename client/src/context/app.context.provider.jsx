@@ -26,7 +26,13 @@ const AppContextProvider = ({ children }) => {
         setIsLoggedIn(false);
       }
     } catch (error) {
-       console.error("Auth check failed:", error.response?.data || error.message);
+        if (error.response?.data?.message === "Unauthorized access, token missing") {
+          console.log("No active session.");
+        } 
+        else {
+          console.error("Auth check failed:", error.response?.data || error);
+        }
+
        setIsLoggedIn(false);
     }
   }
