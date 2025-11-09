@@ -14,8 +14,17 @@ const port = Number(process.env.PORT) || 4000;
 app.use(express.json());
 app.use(urlencoded({extended:true}));
 app.use(cookieParser())
+
+const allowedOrigins = [
+  process.env.BASE_URL,
+  'http://localhost:4000',
+  "http://localhost:5173", // for local development
+  "https://authentication-system-phi-ten.vercel.app", // your deployed frontend
+];
+
+
 app.use(cors({
-    origin: [process.env.BASE_URL, 'http://localhost:4000', 'http://localhost:5173','https://authentication-system-phi-ten.vercel.app/' ],
+    origin: allowedOrigins,
     methods: ['GET','POST','PUT','DELETE'],
     allowedHeaders : ['Content-Type', 'Authorization'],
     credentials : true
