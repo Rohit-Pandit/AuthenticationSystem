@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(urlencoded({extended:true}));
 app.use(cookieParser())
 app.use(cors({
-    origin: [process.env.BASE_URL, 'http://localhost:4000', 'http://localhost:5173' ],
+    origin: [process.env.BASE_URL, 'http://localhost:4000', 'http://localhost:5173','https://authentication-system-phi-ten.vercel.app/' ],
     methods: ['GET','POST','PUT','DELETE'],
     allowedHeaders : ['Content-Type', 'Authorization'],
     credentials : true
