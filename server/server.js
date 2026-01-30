@@ -5,6 +5,7 @@ import connectDB from './config/db.js';
 import cookieParser from 'cookie-parser';
 import userRoutes from './routes/user.routes.js';
 import profileRouter from './routes/profile.routes.js';
+import expenseRoutes from './routes/expense.routes.js';
 
 
 dotenv.config();
@@ -38,6 +39,7 @@ connectDB();
 
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/profile', profileRouter);
+app.use('/api/v1/expenses', expenseRoutes);
 
 
 

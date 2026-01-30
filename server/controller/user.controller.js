@@ -47,7 +47,7 @@ const register = async (req,res)=>{
             process.env.JWT_SECRET, 
             { expiresIn: process.env.JWT_EXPIRES_IN }
        );
-        console.log("token : ", token);
+        
 
         res.cookie('token',
                     token,
