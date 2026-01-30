@@ -45,20 +45,37 @@ const createExpense = async (req, res) => {
 
 const getAllExpenses = async (req, res) => {
   try {
-    const expenses = await Expense.find({
-      userId: req.userId,
-      isDeleted: false,
-    }).sort({ date: -1 });
+    const userId = req.userId;
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
+
+    const filter = { userId: userId, isDeleted: false };
+
+    const expenses = await Expense.find(filter)
+      .sort({ date: -1 })
+      .skip(skip)
+      .limit(limit);
+
     if (expenses.length === 0) {
-      return res.status(200).json({
+      return res.status(404).json({
         success: false,
-        message: "No expenses found for this user",
-        data: [],
+        message: "No expenses found",
       });
     }
+
+    const totalExpenses = await Expense.countDocuments(filter);
+    const totalPages = Math.ceil(totalExpenses / limit);
+
     return res.status(200).json({
       success: true,
       message: "Expenses retrieved successfully",
+      pagination: {
+        totalExpenses,
+        totalPages,
+        currentPage: page,
+        limit,
+      },
       data: expenses,
     });
   } catch (error) {
