@@ -23,6 +23,7 @@ const expenseSchema = new Schema({
     },
     category : {
         type : String,
+        enum : ["Food🍔","Transport🚕","Rent🏠","Shopping🛍️","Healthcare🏥","Entertainment🎮","Bills💡","Salary💼", "Credits💰","Groceries🛒","Education🎓","Other📦"],
         required : true
     },
     date : {

@@ -3,9 +3,11 @@ import axios from "axios";
 import AppContext from "../../context/app.context";
 import { toast } from "react-toastify";
 import "./ExpensesList.css";
+import { useNavigate } from "react-router-dom";
 
 const ExpensesList = () => {
   const { backendUrl } = useContext(AppContext);
+  const navigate = useNavigate();
 
   const [expenses, setExpenses] = useState([]);
   const [page, setPage] = useState(1);
@@ -18,7 +20,7 @@ const ExpensesList = () => {
       setLoading(true);
       const response = await axios.get(
         `${backendUrl}/api/v1/expenses/all-expenses?page=${pageNumber}&limit=${limit}`,
-        { withCredentials: true }
+        { withCredentials: true },
       );
 
       if (response.data.success) {
@@ -70,6 +72,7 @@ const ExpensesList = () => {
                 <th>Type</th>
                 <th>Category</th>
                 <th>Date (MM DD YYYY)</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -80,6 +83,18 @@ const ExpensesList = () => {
                   <td>{exp.type}</td>
                   <td>{exp.category}</td>
                   <td>{new Date(exp.date).toLocaleDateString()}</td>
+                  <td>
+                    {/* Add Edit/Delete buttons here */}
+                    <button
+                      className="edit-btn"
+                      onClick={() => navigate(`/expenses/${exp._id}/edit`)}
+                    >
+                      Edit
+                    </button>
+                    <button className="delete-btn"
+                      onClick={() => navigate(`/expenses/${exp._id}/delete`)}
+                    >Delete</button>
+                  </td>
                 </tr>
               ))}
             </tbody>

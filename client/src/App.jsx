@@ -9,6 +9,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from './components/dashboard/Dashboard.jsx';
 import Navbar from './components/navbar/Navbar.jsx';
 import AddExpense from './components/AddExpense/AddExpense.jsx';
+import EditExpense from './components/EditExpense/EditExpense.jsx';
+import DeleteExpense from './components/Delete/Delete.jsx';
+import RestoreExpense from './components/restore/Restore.jsx';
 
 
 
@@ -24,6 +27,10 @@ function App() {
         <Route path="/email-verify" element={<EmailVerify/>} />
         <Route path="/dashboard" element={<Dashboard/>} />
         <Route path="/add-expense" element={<AddExpense/>} />
+        <Route path="/expenses/:id/edit" element={<EditExpense />} />
+        <Route path="/expenses/:id/delete" element={<DeleteExpense />} />
+        <Route path="/expenses/restore" element={<RestoreExpense />} />
+
       </Routes>
     </div>
   )

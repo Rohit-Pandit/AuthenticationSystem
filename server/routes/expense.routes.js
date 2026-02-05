@@ -8,7 +8,8 @@ import { createExpense,
         getExpenseSummary,
         getCategoryWiseExpenses,
         getMonthlyExpenseSummary,
-        restoreDeletedExpense
+        restoreDeletedExpense,
+        getDeletedExpenses,
  } from "../controller/expense.controller.js";
 import {authMiddleware} from "../middleware/auth.middleware.js";
 
@@ -21,6 +22,7 @@ router.get("/all-expenses", authMiddleware, getAllExpenses);
 router.get("/summary", authMiddleware, getExpenseSummary);
 router.get("/category-summary", authMiddleware, getCategoryWiseExpenses);
 router.get("/monthly-summary", authMiddleware, getMonthlyExpenseSummary);
+router.get("/deleted-expenses", authMiddleware, getDeletedExpenses);
 
 router.patch("/restore/:id", authMiddleware, restoreDeletedExpense);
 router.put("/update/:id", authMiddleware, updateExpense);

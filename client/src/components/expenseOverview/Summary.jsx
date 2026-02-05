@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { useContext, useEffect, useState } from "react";
 import AppContext from "../../context/app.context.js";
 import { useNavigate } from "react-router-dom";
-import AddExpense from "../AddExpense/AddExpense.jsx";
+import trash from "../../assets/trash.png";
 
 const Summary = () => {
   const navigate = useNavigate();
@@ -40,7 +40,16 @@ const Summary = () => {
         <h2>Expenses Overview</h2>
 
         <div className="actions">
-          <button className="btn-outline">Change plans</button>
+          <button className="btn-outline"
+          onClick={() => navigate("/expenses/restore")}
+          >
+            <img
+            style={{width:"20px",height:"20px"}}
+              src={trash}
+              alt="Trash"
+            />
+            <span style={{ marginLeft: "5px", display : "flex", flexDirection: "column" }}>Trash</span>
+          </button>
           <button
             className="btn-primary"
             onClick={() => navigate("/add-expense",{

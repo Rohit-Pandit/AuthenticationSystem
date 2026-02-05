@@ -16,7 +16,7 @@ const AddExpense = () => {
     title: "",
     amount: "",
     type: "expense",
-    category: "",
+    category: "Other📦",
     date: "",
     notes: "",
   });
@@ -113,12 +113,20 @@ const AddExpense = () => {
 
           <div className="form-group">
             <label>Category</label>
-            <input
-              name="category"
-              value={formData.category}
-              onChange={handleChange}
-              required
-            />
+            <select name="category" value={formData.category} onChange={handleChange}>
+              <option value="Food🍔">Food🍔</option>
+              <option value="Transport🚕">Transport🚕</option>
+              <option value="Rent🏠">Rent🏠</option>
+              <option value="Shopping🛍️">Shopping🛍️</option>
+              <option value="Healthcare🏥">Healthcare🏥</option>
+              <option value="Entertainment🎮">Entertainment🎮</option>
+              <option value="Bills💡">Bills💡</option>
+              <option value="Salary💼">Salary💼</option>
+              <option value="credits💰">Credits💰</option>
+              <option value="Groceries🛒">Groceries🛒</option>
+              <option value="Education🎓">Education🎓</option>
+              <option value="Other📦">Other📦</option>
+            </select>
           </div>
 
           <div className="form-group">

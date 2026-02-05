@@ -320,6 +320,27 @@ const restoreDeletedExpense = async (req, res) => {
   }
 };
 
+const getDeletedExpenses = async (req, res) => {
+  try {
+    const userId = req.userId;
+    const deletedExpenses = await Expense.find({
+      userId: new mongoose.Types.ObjectId(userId),
+      isDeleted: true,
+    });
+    return res.status(200).json({
+      success: true,
+      message: "Deleted expenses retrieved successfully",
+      data: deletedExpenses,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Server error",
+      error: error.message,
+    });
+  }
+}
+
 export {
   createExpense,
   getAllExpenses,
@@ -330,4 +351,5 @@ export {
   getCategoryWiseExpenses,
   getMonthlyExpenseSummary,
   restoreDeletedExpense,
+  getDeletedExpenses,
 };

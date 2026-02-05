@@ -1,0 +1,70 @@
+.delete-page {
+  min-height: 100vh;
+  background: #f4f6f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.delete-card {
+  background: #fff;
+  padding: 30px;
+  width: 100%;
+  max-width: 450px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.delete-card h2 {
+  margin-bottom: 15px;
+  color: #b91c1c;
+}
+
+.expense-preview {
+  background: #f9fafb;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.warning-text {
+  color: #b91c1c;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.delete-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.cancel-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background: #f3f3f3;
+}
+
+.delete-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #dc2626;
+  color: #fff;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+}

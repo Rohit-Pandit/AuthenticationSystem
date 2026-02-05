@@ -40,3 +40,24 @@
   background: #aaa;
   cursor: not-allowed;
 }
+
+.edit-btn {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  
+  
+}
+
+.delete-btn {
+  background-color: #e11d48;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  
+}
