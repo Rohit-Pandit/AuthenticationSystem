@@ -20,6 +20,7 @@ const allowedOrigins = [
   process.env.BASE_URL,
   'http://localhost:4000',
   "http://localhost:5173", // for local development
+  "http://127.0.0.1:3000",
   "https://authentication-system-phi-ten.vercel.app", // your deployed frontend
 ];
 

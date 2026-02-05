@@ -47,7 +47,7 @@ const Login = () => {
           setIsLoggedIn(true);
           // toast.info(`Welcome, Logged in successfully}`)
           getUserData();
-          navigate("/");
+          navigate("/dashboard");
         } 
         else toast.error(response.data.message);
       }

@@ -12,3 +12,6 @@ const connectDB = async ()=>{
 };
 
 export default connectDB
+
+// VITE_BACKEND_URL=https://mern-auth-backend-n364.onrender.com
+//  VITE_BACKEND_URL=http://127.0.0.1:3000
