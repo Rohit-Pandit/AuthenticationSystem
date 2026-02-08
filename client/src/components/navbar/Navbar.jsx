@@ -1,6 +1,6 @@
 import React,{useContext} from 'react';
 import './Navbar.css';
-import {assets} from '../../assets/assets.js';
+import logo from '../../assets/Finance-Logo.png';
 import {useNavigate} from 'react-router-dom';
 import AppContext from '../../context/app.context.js';
 import axios from 'axios';
@@ -43,7 +43,12 @@ const Navbar = () => {
 
   return (
     <div className='navbar-container'>
-        <img src={assets.logo} alt="logo" />
+        <button 
+        style={{border: "none"}}
+        onClick={() => navigate('/')}
+        >
+          <img className="logo" src={logo} alt="logo" />
+        </button>
         {
            user?
                <div className='userLogo'>

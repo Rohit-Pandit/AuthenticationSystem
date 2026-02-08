@@ -84,16 +84,20 @@ const ExpensesList = () => {
                   <td>{exp.category}</td>
                   <td>{new Date(exp.date).toLocaleDateString()}</td>
                   <td>
-                    {/* Add Edit/Delete buttons here */}
-                    <button
-                      className="edit-btn"
-                      onClick={() => navigate(`/expenses/${exp._id}/edit`)}
-                    >
-                      Edit
-                    </button>
-                    <button className="delete-btn"
-                      onClick={() => navigate(`/expenses/${exp._id}/delete`)}
-                    >Delete</button>
+                   
+                      <button
+                        className="action-btn edit-btn"
+                        onClick={() => navigate(`/expenses/${exp._id}/edit`)}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className="action-btn delete-btn"
+                        onClick={() => navigate(`/expenses/${exp._id}/delete`)}
+                      >
+                        Delete
+                      </button>
+                    
                   </td>
                 </tr>
               ))}

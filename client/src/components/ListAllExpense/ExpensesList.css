@@ -41,23 +41,44 @@
   cursor: not-allowed;
 }
 
+.action-cell {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+
+.action-btn {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  width: auto;
+  min-width: 70px;
+}
+
 .edit-btn {
   background-color: #4f46e5;
+  padding: 10px 14px;
   color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  
-  
 }
 
 .delete-btn {
   background-color: #e11d48;
   color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  
+}
+
+/* Hover effects */
+.edit-btn:hover {
+  background-color: #4338ca;
+}
+
+.delete-btn:hover {
+  background-color: #be123c;
 }

@@ -14,10 +14,9 @@ const Header = () => {
         Hey {user ? user.name : `Developer`}!
         <img src={assets.hand_wave} alt="hand wave" className="hand-wave" />
       </h1>
-      <h2>Welcome to our app</h2>
+      <h2>Welcome to our Expense Tracker</h2>
       <p>
-        Lets start with a quick product tour and we will have you up and running
-        in no time
+        Let’s get you up and running with smarter expense tracking in no time.
       </p>
       <button
         onClick={() => {

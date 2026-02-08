@@ -8,7 +8,6 @@ import ExpensesList from '../ListAllExpense/ExpensesList.jsx';
 const Dashboard = () => {
   return (
     <div>
-        <h1>Expenses Board</h1>
         <Summary/>
         <ExpensesList/>
         
